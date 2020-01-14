@@ -17,6 +17,9 @@
     <None Include="Languages\fa-IR.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Languages\ru-RU.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Compile Include="Localization.fs" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />

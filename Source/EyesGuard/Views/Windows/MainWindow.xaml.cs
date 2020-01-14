@@ -46,6 +46,7 @@ namespace EyesGuard.Views.Windows
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (!minimizing)
             {
                 minimizing = true;
@@ -53,6 +54,7 @@ namespace EyesGuard.Views.Windows
                 WindowState = WindowState.Minimized;
                 minimizing = false;
             }
+            
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
