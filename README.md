@@ -46,6 +46,28 @@ Eyes Guard is a free and open-source app. If you like it, please consider:
 - 👩‍💻 Contribute to Software Development of Eyes Guard
 - ✏ Translate app to your language using guide below
 
+## Supported Languages
+
+| |Language|Locale|Translator|
+|-|--------|------|----------|
+|[![us][us]](#)|English|en-US|[Aryan Ebrahimpour](https://aryan.software), [Gianpaolo Filippa](https://github.com/gianpaolof), [Akash Joshi](https://akashj.com)|
+|[![ir][ir]](#)|Persian|fa-IR|[Aryan Ebrahimpour](https://aryan.software)|
+|[![it][it]](#)|Italian|it-IT|[Gianpaolo Filippa](https://github.com/gianpaolof)|
+|[![fr][fr]](#)|French|fr-FR|[Bouillon Pierre](https://pbouillon.github.io)|
+|[![ru][ru]](#)|Russian|ru-RU|[Dmitry Vorobjev](https://github.com/ExplorerOL)|
+|[![no][no]](#)|Norwegian|nb-NO|[Thomas Rory Gummerson](https://trgwii.no/)|
+|[![in][in]](#)|Tamil|ta-IN|[Muthu Kumar](https://mkr.pw)|
+|[![add][add]](#how-to-contribute-to-translating-app)|[Add Language](#how-to-contribute-to-translating-app)||You|
+
+[us]: https://img.icons8.com/color/48/000000/usa.png
+[ir]: https://img.icons8.com/color/48/000000/iran.png
+[it]: https://img.icons8.com/color/48/000000/italy.png
+[fr]: https://img.icons8.com/color/48/000000/france.png
+[ru]: https://img.icons8.com/color/48/000000/russian-federation.png
+[no]: https://img.icons8.com/color/48/000000/norway.png
+[in]: https://img.icons8.com/color/48/000000/india.png
+[add]: https://img.icons8.com/doodle/48/000000/add.png
+
 ## Can I contribute?
 
 PRs are very welcome!
