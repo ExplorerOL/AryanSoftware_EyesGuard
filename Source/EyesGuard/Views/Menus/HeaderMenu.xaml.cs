@@ -27,6 +27,8 @@ namespace EyesGuard.Views.Menus
         {
             InitializeComponent();
 
+            App.Configuration.KeyTimesVisible = true;
+
             DataContext = App.UIViewModels.HeaderMenu;
         }
 
@@ -51,8 +53,9 @@ namespace EyesGuard.Views.Menus
 
         private void ShowHideTimeRemaining_Click(object sender, RoutedEventArgs e)
         {
-            App.Configuration.KeyTimesVisible = (App.Configuration.KeyTimesVisible) ? false : true;
-            App.Configuration.SaveSettingsToFile();
+            //Let times be visible always
+            //App.Configuration.KeyTimesVisible = (App.Configuration.KeyTimesVisible) ? false : true;
+            //App.Configuration.SaveSettingsToFile();
         }
 
         private void FiveMinutesPause_Click(object sender, RoutedEventArgs e)

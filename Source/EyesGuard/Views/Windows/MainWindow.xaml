@@ -64,11 +64,7 @@
                                 Margin="10,5,5,5"
                                 Foreground="White"
                                 Icon="Eye" />
-                            <TextBlock
-                                Margin="0,0,10,0"
-                                VerticalAlignment="Center"
-                                FontWeight="Bold"
-                                Text="{lang:LocalizedString 'Application.HeaderTitle'}" />
+                                                   
                         </StackPanel>
                     </Button>
                     <menus:HeaderMenu

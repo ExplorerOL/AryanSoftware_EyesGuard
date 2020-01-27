@@ -27,6 +27,18 @@
             </MenuItem>
 
             <Separator />
+            <MenuItem Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.Header'}">
+                <MenuItem
+                Click="StartShortBreak_Click"
+                Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.GoShort'}"
+                IsEnabled="{Binding ManualBreakEnabled}" />
+                <MenuItem
+                Click="StartLongBreak_Click"
+                Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.GoLong'}"
+                IsEnabled="{Binding ManualBreakEnabled}" />
+            </MenuItem>
+
+            <Separator />
             <MenuItem Click="HideApp_Click" Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.EyesGuard.Hide'}" />
             <Separator />
             <MenuItem Click="ApplicationExit_Click" Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.EyesGuard.Exit'}" />
@@ -40,26 +52,6 @@
                 Click="GoToSettingsPage_Click"
                 Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Tools.Settings'}"
                 Icon="{StaticResource EyesGuard.Settings}" />
-        </MenuItem>
-
-        <MenuItem Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.Header'}">
-            <MenuItem
-                Click="StartShortBreak_Click"
-                Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.GoShort'}"
-                IsEnabled="{Binding ManualBreakEnabled}" />
-            <MenuItem
-                Click="StartLongBreak_Click"
-                Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Breaks.GoLong'}"
-                IsEnabled="{Binding ManualBreakEnabled}" />
-        </MenuItem>
-
-        <MenuItem Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.View.Header'}">
-            <MenuItem
-                Click="ShowHideTimeRemaining_Click"
-                Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.View.KeyTimes'}"
-                IsCheckable="True"
-                IsChecked="{Binding IsTimeItemChecked}"
-                StaysOpenOnClick="True" />
         </MenuItem>
         <MenuItem Header="{lang:LocalizedString 'EyesGuard.HeaderMenu.Help.Header'}">
             <MenuItem
