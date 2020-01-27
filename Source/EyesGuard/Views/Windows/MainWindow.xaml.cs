@@ -29,6 +29,9 @@ namespace EyesGuard.Views.Windows
             InitializeComponent();
 
             if (App.LaunchMinimized)
+                MinimizeButton.Visibility = Visibility.Hidden;
+                MaxRestoreButton.Visibility = Visibility.Hidden;
+
                 this.Hide();
         }
 
