@@ -25,28 +25,36 @@ module LanguageLoader =
     // Declaration of YAML Provider with default language
     type LocalizedEnvironment = YamlConfig<defaultLocaleAddress>
 
-    //Identifying of directory with languages depending of mode (design of not)
+    // Identifying of directory with languages depending of mode (design or not)
     let localizationDirectoryPath designMode =
         if designMode then Path.Combine [| CompilerInfo.CompilerDirectory; "Languages" |]
         else Path.Combine [|AppDomain.CurrentDomain.BaseDirectory; "Languages" |]
 
+    // Creating an array of available languages
     let supportedCultures =
         CultureInfo.GetCultures(CultureTypes.AllCultures)
         |> Array.map (fun x -> x.Name)
-
+    
+    // getLocalePath (locale , designMode) -> structure (path(to lang file) [string], locale (filename) [string])
     let getLocalePath locale designMode = Path.Combine [|localizationDirectoryPath designMode; sprintf "%s.yml" locale|]
 
+    // Checking if the lang file exists
     let localeFileExists locale designMode =
         getLocalePath locale designMode
         |> File.Exists
 
+    // Reading lang file content
     let getLocaleContent locale designMode =
         getLocalePath locale designMode |> File.ReadAllText
 
+    // locale = file name. Cheching if the locale (en-EN) is supported in system
     let isCultureSupported locale = Array.contains locale supportedCultures
+
+    // Language is supported and lang file exists
     let isCultureSupportedAndExists locale designMode =
         (localeFileExists locale designMode) && (isCultureSupported locale)
 
+    
     let createEnvironment locale designmode =
         if isCultureSupportedAndExists locale designmode then
             let lang = LocalizedEnvironment()
