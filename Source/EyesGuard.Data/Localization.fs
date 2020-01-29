@@ -1,22 +1,31 @@
 ﻿namespace EyesGuard.Data
 
+// Importing modules or name spaces
 open System.Globalization
 open FSharp.Configuration
 open System.Collections.ObjectModel
 open System.Runtime.InteropServices
 
+// New module declaration
 module LanguageLoader =
 
+    // Importing modules or name spaces
     open System
     open System.IO
     open CompilerExtensions
 
+    // Default language = English
     let defaultLocale = "en-US"
+    
+    // Force compiling
     [<Literal>]
+    //File for default language
     let defaultLocaleAddress = "Languages/en-US.yml"
 
+    // Declaration of YAML Provider with default language
     type LocalizedEnvironment = YamlConfig<defaultLocaleAddress>
 
+    //Identifying of directory with languages depending of mode (design of not)
     let localizationDirectoryPath designMode =
         if designMode then Path.Combine [| CompilerInfo.CompilerDirectory; "Languages" |]
         else Path.Combine [|AppDomain.CurrentDomain.BaseDirectory; "Languages" |]
