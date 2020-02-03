@@ -20,31 +20,31 @@ module LanguageLoader =
     // Force compiling
     [<Literal>]
    
-    //File for default language
+    //File for default language with local path
     let defaultLocaleAddress = "Languages/en-US.yml"
 
-    // Declaration of YAML Provider with default language
+    // Generating a data structure containing fields from YAML file (needs YAMLConfig Ppackage)
     type LocalizedEnvironment = YamlConfig<defaultLocaleAddress>
 
-    // Identifying of directory with languages depending of mode (design or not)
+    // Identifying of the directory with languages depending of mode (design or not); Combines two strings into a path
     let localizationDirectoryPath designMode =
         if designMode then Path.Combine [| CompilerInfo.CompilerDirectory; "Languages" |]
         else Path.Combine [|AppDomain.CurrentDomain.BaseDirectory; "Languages" |]
 
-    // Creating an array of available languages
+    // Gets the list of supported cultures filtered by the specified CultureTypes parameter
     let supportedCultures =
         CultureInfo.GetCultures(CultureTypes.AllCultures)
         |> Array.map (fun x -> x.Name)
     
-    // getLocalePath (locale , designMode) -> structure (path(to lang file) [string], locale (filename) [string])
+    // Generating the path to lang file  of type string [Path to directory + fileName]; Combines two strings into a path
     let getLocalePath locale designMode = Path.Combine [|localizationDirectoryPath designMode; sprintf "%s.yml" locale|]
 
-    // Checking if the lang file exists
+    // Checking if the lang file exists (if file exists 1 is returned)
     let localeFileExists locale designMode =
         getLocalePath locale designMode
         |> File.Exists
 
-    // Reading lang file content
+    // Reading lang file content into a string and closing the file
     let getLocaleContent locale designMode =
         getLocalePath locale designMode |> File.ReadAllText
 
@@ -89,7 +89,7 @@ module LanguageLoader =
 
     // C# Object used to respect .NET conventions
     type FsLanguageLoader() =
-        static member DefaultLocale = defaultLocale     // DefaultLocale = "en-US"
+        static member DefaultLocale = defaultLocale     // Returns string with defaultLocale = "en-US"
         static member CreateEnvironment (locale, [<Optional;DefaultParameterValue(false)>]designMode) = createEnvironment locale designMode     // create YAML provider for appropriate lang
         static member LanguagesBriefData ([<Optional;DefaultParameterValue(false)>]designMode)  = languagesBriefData designMode                 // create array element = [LangName; LangNativeName]
         static member DefaultEnvironment = defaultEnvironment                                                                                   // defaultEnvironment = LocalizedEnvironment()
