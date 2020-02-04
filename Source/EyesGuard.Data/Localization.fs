@@ -23,7 +23,7 @@ module LanguageLoader =
     //File for default language with local path
     let defaultLocaleAddress = "Languages/en-US.yml"
 
-    // Generating a data structure containing fields from YAML file (needs YAMLConfig Ppackage)
+    // Generating a data structure containing fields from YAML file (needs YAMLConfig Package)
     type LocalizedEnvironment = YamlConfig<defaultLocaleAddress>
 
     // Identifying of the directory with languages depending of mode (design or not); Combines two strings into a path
@@ -57,18 +57,18 @@ module LanguageLoader =
 
     // 
     let createEnvironment locale designmode =
-        if isCultureSupportedAndExists locale designmode then
-            let lang = LocalizedEnvironment()                   // lang = YAML provider
-            let path = getLocalePath locale designmode          // set path depending on design mode
-            lang.Load path                                      // load lang
-            lang                                                // ???
+        if isCultureSupportedAndExists locale designmode then   // Cheching if language exists and supported
+            let lang = LocalizedEnvironment()                   // Definition of lang (lang = YAML provider)
+            let path = getLocalePath locale designmode          // Definition of path (set path depending on design mode)
+            lang.Load path                                      // load YAML file path
+            lang                                                // Return YAML provider with appropriate lang path
         else
-            LocalizedEnvironment()                              // lad defaul lang
+            LocalizedEnvironment()                              // Else return YAML provider with appropriate default lang path
 
-    let defaultEnvironment = LocalizedEnvironment()
+    let defaultEnvironment = LocalizedEnvironment()             // Return YAML provider with appropriate default lang path
     
     
-    type LanguageHolder = { Name : string; NativeName : string }
+    type LanguageHolder = { Name : string; NativeName : string }    // Creating type LanguageHolder
 
     // Creating an array of available languages for application
     let localeFiles designMode =
@@ -92,5 +92,5 @@ module LanguageLoader =
         static member DefaultLocale = defaultLocale     // Returns string with defaultLocale = "en-US"
         static member CreateEnvironment (locale, [<Optional;DefaultParameterValue(false)>]designMode) = createEnvironment locale designMode     // create YAML provider for appropriate lang
         static member LanguagesBriefData ([<Optional;DefaultParameterValue(false)>]designMode)  = languagesBriefData designMode                 // create array element = [LangName; LangNativeName]
-        static member DefaultEnvironment = defaultEnvironment                                                                                   // defaultEnvironment = LocalizedEnvironment()
-        static member IsCultureSupportedAndExists (locale, [<Optional;DefaultParameterValue(false)>] designMode) = isCultureSupportedAndExists locale designMode
+        static member DefaultEnvironment = defaultEnvironment                                                                                   // create YAML provider for default (English) language  (defaultEnvironment = LocalizedEnvironment())
+        static member IsCultureSupportedAndExists (locale, [<Optional;DefaultParameterValue(false)>] designMode) = isCultureSupportedAndExists locale designMode    // language file exists ans is supported
