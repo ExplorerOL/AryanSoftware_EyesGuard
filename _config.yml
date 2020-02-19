@@ -1,1 +1,7 @@
-theme: jekyll-theme-cayman
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: remote
+
+remote_theme: 0xaryan/0xaryan.github.io
